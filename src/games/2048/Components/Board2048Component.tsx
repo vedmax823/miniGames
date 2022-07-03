@@ -12,25 +12,25 @@ const Board2048Component : FC = () => {
         switch (e.key) {
             case "ArrowUp":
                     board.up()
-                    board.getRandomCell()
+                   
                     setBoard(board.getCopyBoard(board.cells))
                 break;
 
             case "ArrowDown":
                     board.down()
-                    board.getRandomCell()
+                    
                     setBoard(board.getCopyBoard(board.cells))
                 break;
             
             case "ArrowLeft":
                     board.left()
-                    board.getRandomCell()                    
+                             
                     setBoard(board.getCopyBoard(board.cells))
                 break;
             
             case "ArrowRight":
                     board.right()
-                    board.getRandomCell()
+                    
                     setBoard(board.getCopyBoard(board.cells))
                 break;
         

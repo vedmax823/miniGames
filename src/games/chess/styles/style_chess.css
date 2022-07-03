@@ -1,0 +1,58 @@
+.board_chess{
+    width: calc(60px * 8 + 4px);
+    height: calc(60px * 8 + 4px);
+    display: flex;
+    flex-wrap: wrap;
+    border: 2px solid brown;
+    position: relative;
+}
+
+.cell_chess{
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cell_white{
+    background-color: antiquewhite;
+}
+
+.cell_black{
+    background-color: #c47112;
+}
+
+
+
+.cell_figure img{
+    width: 55px;
+    height: 55px;
+    position: relative;
+}
+
+.cell_pawn img{
+    width: 50px;
+    height: 50px;
+    position: relative;
+}
+
+.possible {
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    background-color: #22c022;
+}
+
+.choose_figure_white{
+    width: calc(60px * 2);
+    height: calc(60px * 2);
+    background-color: aliceblue;
+    position: absolute;
+    top: 180px;
+    left: 180px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+            

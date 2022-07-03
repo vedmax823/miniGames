@@ -49,30 +49,33 @@ export class Board2048{
     left(){
         let flag = false;
         for (let i = 0; i < this.cells.length; i++){
-            flag = this.createLineLeft(this.cells[i])
-            console.log(flag)
+            if (this.createLineLeft(this.cells[i])) flag = true
         }
+        if (flag) this.getRandomCell()
     }
 
     right(){
         let flag = false;
         for(let i = 0; i < this.cells.length; i++){
-            flag = this.createLineRight(this.cells[i])
+            if  (this.createLineRight(this.cells[i])) flag = true
         }
+        if (flag) this.getRandomCell()
     }
 
     up(){
         let flag = false;
         for(let i =0; i < this.cells.length; i++){
-            flag = this.createLineUp(this.cells, i)
+            if (this.createLineUp(this.cells, i)) flag = true
         }
+        if (flag) this.getRandomCell()
     }
 
     down(){
         let flag = false;
         for(let i =0; i < this.cells.length; i++){
-            flag = this.createLineDown(this.cells, i)
+            if (this.createLineDown(this.cells, i)) flag = true
         }
+        if (flag) this.getRandomCell()
     }
 
     private createLineLeft(cells : Cell[]) : boolean{

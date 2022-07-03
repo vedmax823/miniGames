@@ -41,9 +41,7 @@ const OneFigureComponent : FC<OneFiguereProps> = ({figure, num}) => {
    
     const dispatch = useDispatch()
     const handleDown = (e : any) => {
-
         if (!figure.canMove) return false
-        
         const newObject = ballRef.current;
         
         let div = document.createElement("div")
@@ -99,39 +97,10 @@ const OneFigureComponent : FC<OneFiguereProps> = ({figure, num}) => {
         document.onmousemove = function(e) {
             moveAtDiv(e);
         }
-        
-        function moveToStart() {
-            div.style.left = sx + 'px'
-            div.style.top = sy + 'px'
-        }
+    
 
         function destroyBrick(figure : Figure) {
             figureList?.removeObj(figure)
-        }
-
-        function returnDisplayBlock(){
-            figureList.figureArr.forEach(figure => {
-                const el = document.getElementById(`id${figure?.id}`)
-                console.log(el)
-                console.log(`id${figure?.id}`)
-                //el!.style.display = 'block'
-            })
-        }
-
-        function findCell() {
-            const left = parseInt(ballRef.current!.style.left) ?? 0
-            const top = parseInt(ballRef.current!.style.top) ?? 0
-            const oneCell = board?.findCellByTopLeft(top, left)
-            if (oneCell && oneCell.isEmpty){
-                oneCell.setEmpty()
-                destroyBrick(figure)
-                const newBoard = board?.getCopyBoard()
-                dispatch(setFigure(figureList))
-                dispatch(setBoard(newBoard))
-            }
-            else{
-                moveToStart()
-            }
         }
 
         function findCellDiv() {
@@ -169,22 +138,10 @@ const OneFigureComponent : FC<OneFiguereProps> = ({figure, num}) => {
         }
 
         div.onmouseup = function() {
-            
             findCellDiv()
-            //console.log(figureList)
-            //moveToStart()
             document.onmousemove = null;
-            //ballRef.current!.onmouseup = null;
             div.onmouseup = null;
-            //ballRef.current!.onmousedown = handleDown
-            //checkAndReturnMainObject()
-            
-            //console.log(figureList.checkFull(), figureList.figureArr)
-            //returnDisplayBlock()
-            //figureList.checkFull() && returnDisplayBlock()
             div.parentNode?.removeChild(div);
-            
-            //ballRef.current!.style.display = "block"
         }
         // 5. Чтоб не обрабатывался как картинка браузером
         ballRef.current!.ondragstart = function() {
@@ -204,8 +161,10 @@ const OneFigureComponent : FC<OneFiguereProps> = ({figure, num}) => {
             ref = {ballRef}
             onMouseDown={handleDown}
             className = {['big_figure_div', `width_figure${figure.length}`, `height_figure${figure.height}`, !figure.canMove && 'opacity_class04' ].join(' ')}
+            
         >
             {
+                
                 figure.figureBrics.map((row) => 
                     row.map((brick) =>{
                             

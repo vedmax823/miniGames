@@ -41,16 +41,13 @@ const MainBlock = () => {
             best = bestScoreBlock.toString()
         }
         setBestScoreBlock(parseInt(best))
-        console.log(count, parseInt(best))
 
         if (count > parseInt(best)){
            
             localStorage.setItem('bestScoreBlock', count.toString())
             setBestScoreBlock(count)
         }
-        
-        //console.log(count)
-        //localStorage.setItem('bestScore', count.toString())
+
     },[count])
     
     function restart() {

@@ -8,6 +8,8 @@ const MainPage:FC = () => {
             <div>
                 <span className="ms-4"><Link to="/block" >Block game</Link></span>
                 <span className="ms-4"><Link to="/2048">2048</Link></span>
+                <span className="ms-4"><Link to="/chess">Chess</Link></span>
+
             </div>
         </div>
     );
